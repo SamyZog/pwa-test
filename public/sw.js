@@ -19,3 +19,5 @@ self.addEventListener("notificationclick", (event) => {
 
   event.notification.close();
 });
+
+self.addEventListener("fetch", (event) => {});
