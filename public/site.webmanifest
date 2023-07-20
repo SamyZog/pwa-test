@@ -16,6 +16,6 @@
   "id": "com.lightning.app",
   "name": "Lightning",
   "short_name": "Lightning",
-  "start_url": "/index.html",
+  "start_url": "https://pwa-test-eight-alpha.vercel.app/",
   "theme_color": "#ff9400"
 }
