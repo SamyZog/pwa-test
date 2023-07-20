@@ -9,6 +9,8 @@ export default function App({ Component, pageProps }: AppProps) {
       return;
     }
 
+    console.log(Notification.permission);
+
     if (Notification.permission === "granted") {
       registerSW();
     }
