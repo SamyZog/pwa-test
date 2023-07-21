@@ -8,12 +8,6 @@ export default function Home() {
     });
   };
 
-  const showLocalNotification = () => {
-    new Notification("Hello", {
-      body: "Hello, world!",
-    })
-  }
-
   return (
     <div className="p-10">
       <button
@@ -22,7 +16,6 @@ export default function Home() {
           try {
             Notification.requestPermission().then((permission) => {
               if (permission === "granted") {
-                showLocalNotification();
                 showNotification();
               }
             });
@@ -33,7 +26,6 @@ export default function Home() {
             if (error instanceof TypeError) {
               Notification.requestPermission((permission) => {
                 if (permission === "granted") {
-                  showLocalNotification();
                   showNotification();
                 }
               });
