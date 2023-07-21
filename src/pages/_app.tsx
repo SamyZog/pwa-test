@@ -16,18 +16,19 @@ export default function App({ Component, pageProps }: AppProps) {
     }
 
     if (Notification.permission !== "denied") {
-      Notification.requestPermission().then((permission) => {
-        if (permission === "granted") {
-          registerSW();
-        }
-
-        if (permission === "denied") {
-          console.log("Permission wasn't granted. Allow a retry.");
-          return;
-        }
-
-        console.log("Permission wasn't granted. Allow a retry.");
-      });
+      try {
+        Notification.requestPermission().then((permission) => {
+          if (permission === "granted") {
+            registerSW();
+          }
+        });
+      } catch (error) {
+        Notification.requestPermission((permission) => {
+          if (permission === "granted") {
+            registerSW();
+          }
+        });
+      }
     }
   }, []);
 
